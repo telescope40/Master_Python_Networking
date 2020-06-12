@@ -1,0 +1,15 @@
+---
+  
+- hosts: ROUTERS
+  gather_facts: false
+  connection: local
+ 
+
+  tasks:
+    - name: show commands
+      ios_command:
+              commands: 
+              - show version
+              wait_for: 
+              - result[0] contains  Version 15.7(3)M3
+              register: show_ver_out

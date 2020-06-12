@@ -1,0 +1,11 @@
+---
+  
+- hosts: cisco_vm
+  gather_facts: false
+  connection: local
+  
+  tasks:
+     - name: configure ntp server 
+       ios_config:
+         lines:
+           - ntp server 172.16.0.254 source gigabitEthernet 0/1

@@ -1,0 +1,17 @@
+[ubuntu]
+172.16.0.174
+[cisco_vm]
+172.16.0.199
+172.16.0.171
+ [cisco_vm:vars]
+ ansible_user=admin
+ ansible_ssh_pass=admin
+ ansible_network_os=ios
+
+[nexus]
+172.16.0.165
+ [nexus:vars]
+ username=admin
+ password=@dmin123
+ [nexus_by_name]
+ NX01 ansible_host=172.16.0.165

@@ -1,0 +1,14 @@
+---
+ - name: Display some facts
+   gather_facts: no
+   hosts: cisco_vm
+   connection: network_cli
+   tasks:
+           - name: Display Facts
+             ios_command:
+                     commands: show version
+             register: output1
+
+           - name: print result
+             debug:
+                     var: output1.stdout_lines[0]
