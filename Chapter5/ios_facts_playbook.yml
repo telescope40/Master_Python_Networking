@@ -1,0 +1,19 @@
+---
+- name: Chapter 5 Ansible Network Facts
+  connection: network_cli
+  gather_facts: false
+  hosts: cisco_vm
+  tasks:
+    - name: Gathering Facts via ios_facts module
+      ios_facts:
+     
+
+    - name: Display Facts
+      debug:
+        msg: "The hostname is {{ ansible_net_hostname }} running {{ ansible_net_version }}"
+
+
+    - name: Display all facts for a host
+      debug:
+        msg: "{{ ansible_facts }}"
+        
