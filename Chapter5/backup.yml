@@ -1,0 +1,17 @@
+---
+- name: Standard Loop Yaml 
+  connection: network_cli
+  gather_facts: false
+  hosts: cisco_vm
+  tasks:
+    - name: Show Run -> Write to File
+      ios_command:
+       commands: show run 
+      register: output
+
+    - name: show output
+      debug:
+        var: output.stdout
+
+    - name: Copy to File
+      copy: content="{{output.stdout[0]}}" dest={{ inventory_hostname}}.txt

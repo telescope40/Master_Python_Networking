@@ -1,0 +1,15 @@
+---
+ - name: Gather Info All Platforms
+   connection: network_cli
+   gather_facts: yes
+   hosts: nexus,cisco_vm
+   tasks:
+    
+     - name: View all Ansible Fact Keys
+       debug:
+         var: ansible_facts.keys()
+
+     - name: View HostName
+       debug:
+         var: ansible_net_hostname 
+        

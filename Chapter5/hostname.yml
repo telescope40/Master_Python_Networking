@@ -1,0 +1,17 @@
+---
+- name: Chapter 5 Ansible Network Facts
+  connection: network_cli
+  gather_facts: false
+  hosts: cisco_vm
+  tasks:
+    - name: show hostname
+      ios_command:
+          commands:
+             - show run | i hostname
+      register: output
+     
+
+    - name: show specific output
+      when: '"R2" in "{{ output.stdout }}"'
+      debug:
+        msg: '{{ output }}' 

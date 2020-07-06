@@ -1,0 +1,18 @@
+---
+ - name: nxos_facts 
+   connection: network_cli
+   gather_facts: no
+   hosts: nexus
+   tasks:
+    
+     - name: Gather NXOS Facts
+       nxos_facts:
+
+     - name: View all Ansible Fact Keys
+       debug:
+         var: ansible_facts.keys()
+
+     - name: View HostName
+       debug:
+         var: net__hostname 
+        

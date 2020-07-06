@@ -1,0 +1,19 @@
+---
+- name: Chapter 5 Ansible Network Facts
+  connection: network_cli
+  gather_facts: false
+  hosts: cisco_vm
+  tasks:
+    - name: Gathering Facts via ios_facts module
+      ios_facts:
+     
+
+    - name: Display all facts for a host
+      debug:
+        msg: "{{ ansible_net_interfaces}}"
+      register: output 
+
+    - name: show specific interface
+      when: '"Tunnel0" in "{{ output.stdout }}"'
+      debug:
+        msg: '{{ output }}' 

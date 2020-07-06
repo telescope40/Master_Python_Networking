@@ -1,0 +1,8 @@
+[nexus]
+172.16.0.165
+ [nexus:vars]
+ username=admin
+ password=@dmin123
+ ansible_network_os=nxos
+ [nexus_by_name]
+ NX01 ansible_host=172.16.0.165
