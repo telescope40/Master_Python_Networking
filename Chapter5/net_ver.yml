@@ -1,0 +1,14 @@
+---
+ - name: Gather Info All Platforms
+   connection: network_cli
+   gather_facts: yes
+   hosts: nexus
+   tasks:
+    
+     - name: View HostName
+       debug:
+         var: ansible_net_version
+
+
+     - name: Copy to File
+       copy: content="{{ansible_net__hostname}} {{ ansible_net_serialnum }} {{ansible_net_version}}" dest={{inventory_hostname}}.csv
